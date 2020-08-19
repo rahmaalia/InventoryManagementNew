@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tv_namapengguna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masuk"
+        android:textSize="40sp"
+        android:textColor="#4AC0B4"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pengguna"
+        android:layout_marginLeft="56dp"
+        android:textSize="15sp"
+        android:layout_marginTop="130dp"
+        android:textColor="#4AC0B4"/>
+
+    <EditText
+        android:id="@+id/et_namapengguna"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/edittext"/>
+
+    <TextView
+        android:id="@+id/tv_katasandi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kata Sandi"
+        android:layout_marginLeft="56dp"
+        android:textSize="15sp"
+        android:layout_marginTop="7dp"
+        android:textColor="#4AC0B4"/>
+
+    <EditText
+        android:id="@+id/et_katasandi"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/edittext"/>
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Masuk"
+        android:textSize="24sp"
+        android:background="@drawable/button_rounded"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>
