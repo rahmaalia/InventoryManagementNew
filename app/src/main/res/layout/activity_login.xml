@@ -52,6 +52,7 @@
         android:background="@drawable/edittext"/>
 
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
