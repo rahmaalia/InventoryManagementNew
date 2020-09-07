@@ -4,49 +4,70 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class M_dipinjam {
-    @SerializedName("namabarang")
+    @SerializedName("barang_id")
     @Expose
-    private String namabarang;
-    @SerializedName("stok")
+    private Integer barangId;
+    @SerializedName("nama_barang")
     @Expose
-    private String stok;
-    @SerializedName("tanggal_pinjam")
+    private String namaBarang;
+    @SerializedName("akun_id")
     @Expose
-    private String tanggal_pinjam;
-    @SerializedName("tanggal_kembali")
+    private Integer akunId;
+    @SerializedName("jumlah_pinjam")
     @Expose
-    private String tanggal_kembali;
+    private Integer jumlahPinjam;
+    @SerializedName("status_peminjaman")
+    @Expose
+    private String statusPeminjaman;
 
-    public String getNamabarang(){
-        return namabarang;
-
-    }
-    public void setNamabarang(String nama) {
-        this.namabarang = nama;
-    }
-
-    public String getStok(){
-        return stok;
-
-    }
-    public void setStok(String nama) {
-        this.stok = nama;
+    public Integer getBarangId() {
+        return barangId;
     }
 
-    public String getTanggal_pinjam(){
-        return tanggal_pinjam;
-
-    }
-    public void setTanggal_pinjam(String nama) {
-        this.tanggal_pinjam = nama;
+    public void setBarangId(Integer barangId) {
+        this.barangId = barangId;
     }
 
-    public String getTanggal_kembali(){
-        return tanggal_kembali;
-
-    }
-    public void setTanggal_kembali(String nama) {
-        this.tanggal_kembali = nama;
+    public String getNamaBarang() {
+        return namaBarang;
     }
 
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang = namaBarang;
+    }
+
+    public Integer getAkunId() {
+        return akunId;
+    }
+
+    public void setAkunId(Integer akunId) {
+        this.akunId = akunId;
+    }
+
+    public Integer getJumlahPinjam() {
+        return jumlahPinjam;
+    }
+
+    public void setJumlahPinjam(Integer jumlahPinjam) {
+        this.jumlahPinjam = jumlahPinjam;
+    }
+
+    public String getStatusPeminjaman() {
+        return statusPeminjaman;
+    }
+
+    public void setStatusPeminjaman(String statusPeminjaman) {
+        this.statusPeminjaman = statusPeminjaman;
+    }
+
+    @Override
+    public String toString() {
+        return "M_dipinjam{" +
+                "barangId=" + barangId +
+                ", namaBarang='" + namaBarang + '\'' +
+                ", akunId=" + akunId +
+                ", jumlahPinjam=" + jumlahPinjam +
+                ", statusPeminjaman='" + statusPeminjaman + '\'' +
+                '}';
+    }
 }

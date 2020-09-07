@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PeminjamanActivity"
+    android:orientation="vertical"
+    android:background="#F3F3F3">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Peminjaman"
+        app:titleTextColor="#919191"
+        android:background="#DFDFDF"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
+        android:paddingBottom="20dp"
+        android:background="#DFDFDF"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:textColor="@color/colorPrimary"
+            android:text="Komputer"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:text="Silahkan pilih tanggal pengembalian barang"
+        android:gravity="center_horizontal" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="22/02/2020"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:textColor="@drawable/text_color"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_selector"
+            android:layout_margin="10dp"/>
+        <RadioButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="22/02/2020"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:textColor="@drawable/text_color"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_selector"
+            android:layout_margin="10dp"/>
+        <RadioButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="22/02/2020"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:textColor="@drawable/text_color"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_selector"
+            android:layout_margin="10dp"/>
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp">
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="19dp"
+                android:text="Stok"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah barang"
+                android:textSize="19dp"
+                android:textColor="@color/colorPrimary"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_remove_circle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="1"/>
+                <Button
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_add_circle"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="2dp"
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:text="Pinjam"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+</LinearLayout>

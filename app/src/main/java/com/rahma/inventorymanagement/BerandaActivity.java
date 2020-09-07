@@ -1,9 +1,15 @@
 package com.rahma.inventorymanagement;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -14,6 +20,7 @@ public class BerandaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beranda);
+        getSupportActionBar().setElevation(0);
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabDipinjam = findViewById(R.id.tabDipinjam);
@@ -39,6 +46,32 @@ public class BerandaActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.profilMenu:
+                startActivity(new Intent(BerandaActivity.this,ProfilActivity.class));
+                return true;
+            case R.id.riwayatMenu:
+                startActivity(new Intent(BerandaActivity.this, RiwayatActivity.class));
+                return true;
+            case R.id.keluarMenu:
+                Toast.makeText(this, "Keluar", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
     }
 
 }

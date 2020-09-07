@@ -2,5 +2,5 @@
     <string name="app_name">Inventory Management</string>
     <string name="tersedia">Barang Tersedia</string>
     <string name="dipinjam">Dipinjam</string>
-    <string name="barang_tersedia">Barang tersedia</string>
+    <string name="barang_tersedia">Barang</string>
 </resources>

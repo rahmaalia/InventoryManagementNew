@@ -1,6 +1,7 @@
 package com.rahma.inventorymanagement.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.DipinjamViewHolder> {
    private List<M_dipinjam> dipinjams;
+   M_dipinjam mDipinjam;
    Context mContext;
    CardView cardView;
 
@@ -35,16 +37,18 @@ public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.Dipinj
 
     @Override
     public void onBindViewHolder(@NonNull DipinjamViewHolder holder, int position) {
-        final M_dipinjam mDipinjam = dipinjams.get(position);
-        holder.namabarang.setText(mDipinjam.getNamabarang());
-        holder.stok.setText(mDipinjam.getStok());
-        holder.tgl_pinjam.setText(mDipinjam.getTanggal_pinjam());
-        holder.tgl_kembali.setText(mDipinjam.getTanggal_kembali());
+        mDipinjam = dipinjams.get(position);
+        holder.namabarang.setText(mDipinjam.getNamaBarang());
+        holder.stok.setText(String.valueOf(mDipinjam.getJumlahPinjam()));
+        holder.tgl_pinjam.setText(mDipinjam.getStatusPeminjaman());
+        holder.tgl_kembali.setText(String.valueOf(mDipinjam.getAkunId()));
+
+        Log.d("onBindViewHolder: ", mDipinjam.toString());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dipinjams.size();
     }
 
     public class DipinjamViewHolder extends RecyclerView.ViewHolder {

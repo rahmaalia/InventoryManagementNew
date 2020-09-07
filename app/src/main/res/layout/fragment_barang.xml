@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".BarangFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Barang Tersedia" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btnMeka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#69C0CC"
+        android:textColor="#fff"
+        android:layout_margin="10dp"
+        android:text="Mekatronika" />
+    <Button
+        android:id="@+id/btnRpl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#1E3BA3"
+        android:textColor="#fff"
+        android:text="rekayasa perangkat lunak" />
+    <Button
+        android:id="@+id/btnMulti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="multimedia" />
+    <Button
+        android:id="@+id/btnKimia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="kimia industri" />
+    <Button
+        android:id="@+id/btnAnim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="animasi" />
+    <Button
+        android:id="@+id/btnMesin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="mesin" />
+    <Button
+        android:id="@+id/btnUniv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="universal" />
+
+</LinearLayout>
