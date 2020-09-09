@@ -7,6 +7,8 @@ public class SharedPrefManager {
     public static final String SP_INVENTORY="spInventory";
     public static final String SP_NAMA ="spNama";
     public static final String SP_USERNAME="spUsername";
+    public static final int SP_IDJURUSAN = 1;
+    public static final int SP_IDUSER = 2;
 
     public static final String SP_LOGIN="spLogin";
 
@@ -40,7 +42,12 @@ public class SharedPrefManager {
     public Boolean getSpLogin(){
         return sp.getBoolean(SP_LOGIN, false);
     }
-
+    public int getSpIdjurusan(){
+        return sp.getInt(String.valueOf(SP_IDJURUSAN),2);
+    }
+    public int getSpIduser(){
+        return sp.getInt(String.valueOf(SP_IDUSER),2);
+    }
 
 
 }

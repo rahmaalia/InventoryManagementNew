@@ -81,16 +81,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
 //                                          String nama = jsonRESULT.getJSONObject("data").getString("nama");
                                             String username = JSONResult.getJSONObject("data").getString("username");
+                                            int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
+                                            int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
                                             Log.d("username", "user" + username);
 
                                             sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
                                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN, true);
+                                            sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusan);
+                                            sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDUSER), idakun);
                                             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                             finish();
                                 }
                                 else{
                                     String error = JSONResult.getString("error");
-                                    Toast.makeText(mContext, "gagal login", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext,error, Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

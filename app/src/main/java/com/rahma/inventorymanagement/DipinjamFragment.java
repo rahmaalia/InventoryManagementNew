@@ -2,6 +2,7 @@ package com.rahma.inventorymanagement;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -44,7 +45,7 @@ public class DipinjamFragment extends Fragment {
     TextView tvNamaBarang,tvStok,tvTglPinjam,tvTanggalKembali,tvGone;
     RecyclerView rvDipinjam;
     String status;
-    int akun_id;
+    int akun_id,id_akun;
     List<M_dipinjam> dipinjams;
 
     public DipinjamFragment() {
@@ -56,9 +57,9 @@ public class DipinjamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dipinjam, container, false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
-//        sharedPrefManager = new SharedPrefManager(mContext);
-        status="dipinjam";
-        akun_id= 1;
+
+        final Intent intent = getActivity().getIntent();
+        akun_id = intent.getIntExtra("id_akun",1);
 
         tvNamaBarang = view.findViewById(R.id.tvNamabarang);
         tvStok = view.findViewById(R.id.tvStok);
@@ -88,7 +89,7 @@ public class DipinjamFragment extends Fragment {
 
             @Override
             public void onFailure(Call<EDipinjam> call, Throwable t) {
-                Toast.makeText(getActivity(),"koneksi budug",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"koneksi jelek",Toast.LENGTH_SHORT).show();
             }
         });
 

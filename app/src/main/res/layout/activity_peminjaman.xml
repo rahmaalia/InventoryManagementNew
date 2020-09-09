@@ -22,6 +22,7 @@
         android:background="#DFDFDF"
         android:gravity="center">
         <TextView
+            android:id="@+id/namabarangPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -36,7 +37,8 @@
         android:textAlignment="center"
         android:layout_marginTop="20dp"
         android:text="Silahkan pilih tanggal pengembalian barang"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorPrimary"/>
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -44,6 +46,7 @@
         android:gravity="center"
         android:orientation="horizontal">
         <RadioButton
+            android:id="@+id/rbTanggal1"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="22/02/2020"
@@ -54,6 +57,7 @@
             android:background="@drawable/radio_selector"
             android:layout_margin="10dp"/>
         <RadioButton
+            android:id="@+id/rbTanggal2"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="22/02/2020"
@@ -64,6 +68,7 @@
             android:background="@drawable/radio_selector"
             android:layout_margin="10dp"/>
         <RadioButton
+            android:id="@+id/rbTanggal3"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="22/02/2020"
@@ -93,9 +98,11 @@
                 android:text="Stok"/>
 
             <TextView
+                android:id="@+id/tvStokPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="50"/>
+                android:text="50"
+                android:textColor="#000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -121,6 +128,7 @@
                     android:layout_height="20dp"
                     android:background="@drawable/ic_remove_circle"/>
                 <TextView
+                    android:id="@+id/tvJumlahbarangPost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -151,6 +159,7 @@
         android:padding="5dp">
 
         <Button
+            android:id="@+id/btnPinjam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

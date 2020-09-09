@@ -1,6 +1,7 @@
 package com.rahma.inventorymanagement.apihelper;
 
 import com.rahma.inventorymanagement.model_entitity.EDipinjam;
+import com.rahma.inventorymanagement.model_entitity.M_peminjaman;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -18,4 +19,7 @@ public interface BaseApiService {
 
     @GET("pinjam/{akun_id}")
     Call<EDipinjam> getPinjam (@Path("akun_id") int akun_id);
+
+    @GET("barang/{jurusan_id}")
+    Call<M_peminjaman> getPeminjaman(@Path("jurusan_id")int jurusan_id);
 }

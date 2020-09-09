@@ -13,12 +13,15 @@ public class M_dipinjam {
     @SerializedName("akun_id")
     @Expose
     private Integer akunId;
+    @SerializedName("tanggal_peminjaman")
+    @Expose
+    private String tanggalPeminjaman;
+    @SerializedName("tanggal_pengembalian")
+    @Expose
+    private String tanggalPengembalian;
     @SerializedName("jumlah_pinjam")
     @Expose
     private Integer jumlahPinjam;
-    @SerializedName("status_peminjaman")
-    @Expose
-    private String statusPeminjaman;
 
     public Integer getBarangId() {
         return barangId;
@@ -44,20 +47,28 @@ public class M_dipinjam {
         this.akunId = akunId;
     }
 
+    public String getTanggalPeminjaman() {
+        return tanggalPeminjaman;
+    }
+
+    public void setTanggalPeminjaman(String tanggalPeminjaman) {
+        this.tanggalPeminjaman = tanggalPeminjaman;
+    }
+
+    public String getTanggalPengembalian() {
+        return tanggalPengembalian;
+    }
+
+    public void setTanggalPengembalian(String tanggalPengembalian) {
+        this.tanggalPengembalian = tanggalPengembalian;
+    }
+
     public Integer getJumlahPinjam() {
         return jumlahPinjam;
     }
 
     public void setJumlahPinjam(Integer jumlahPinjam) {
         this.jumlahPinjam = jumlahPinjam;
-    }
-
-    public String getStatusPeminjaman() {
-        return statusPeminjaman;
-    }
-
-    public void setStatusPeminjaman(String statusPeminjaman) {
-        this.statusPeminjaman = statusPeminjaman;
     }
 
     @Override
@@ -67,7 +78,6 @@ public class M_dipinjam {
                 ", namaBarang='" + namaBarang + '\'' +
                 ", akunId=" + akunId +
                 ", jumlahPinjam=" + jumlahPinjam +
-                ", statusPeminjaman='" + statusPeminjaman + '\'' +
                 '}';
     }
 }

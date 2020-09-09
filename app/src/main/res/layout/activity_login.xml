@@ -32,7 +32,8 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:textColor="#000"/>
 
     <TextView
         android:id="@+id/tv_katasandi"
@@ -49,7 +50,8 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/edittext"/>
+        android:background="@drawable/edittext"
+        android:textColor="#000"/>
 
     <Button
         android:id="@+id/btnLogin"

@@ -40,8 +40,8 @@ public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.Dipinj
         mDipinjam = dipinjams.get(position);
         holder.namabarang.setText(mDipinjam.getNamaBarang());
         holder.stok.setText(String.valueOf(mDipinjam.getJumlahPinjam()));
-        holder.tgl_pinjam.setText(mDipinjam.getStatusPeminjaman());
-        holder.tgl_kembali.setText(String.valueOf(mDipinjam.getAkunId()));
+        holder.tgl_pinjam.setText(mDipinjam.getTanggalPeminjaman());
+        holder.tgl_kembali.setText(mDipinjam.getTanggalPengembalian());
 
         Log.d("onBindViewHolder: ", mDipinjam.toString());
     }
