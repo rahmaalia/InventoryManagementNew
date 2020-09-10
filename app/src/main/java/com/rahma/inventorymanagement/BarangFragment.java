@@ -55,10 +55,11 @@ public class BarangFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_barang,container,false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
-//        sharedPrefManager = new SharedPrefManager(mContext);
+        sharedPrefManager = new SharedPrefManager(getContext());
+        jurusan_id = sharedPrefManager.getSpIdjurusan();
+//        final Intent intent = getActivity().getIntent();
+//        jurusan_id = intent.getIntExtra("id_jurusan",1);
 
-        final Intent intent = getActivity().getIntent();
-        jurusan_id = intent.getIntExtra("id_jurusan",1);
         tvNamaBarang = view.findViewById(R.id.tvNamaBarangPeminjaman);
         tvStok = view.findViewById(R.id.tvStokPeminjaman);
         rvPeminjaman = view.findViewById(R.id.rvBarang);

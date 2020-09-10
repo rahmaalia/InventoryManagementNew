@@ -84,6 +84,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
                                             int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
                                             Log.d("username", "user" + username);
+                                            Log.d("id_akun", "id_akun" + idakun);
+
 
                                             sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
                                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN, true);

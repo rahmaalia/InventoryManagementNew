@@ -43,7 +43,7 @@ public class SharedPrefManager {
         return sp.getBoolean(SP_LOGIN, false);
     }
     public int getSpIdjurusan(){
-        return sp.getInt(String.valueOf(SP_IDJURUSAN),2);
+        return sp.getInt(String.valueOf(SP_IDJURUSAN),1);
     }
     public int getSpIduser(){
         return sp.getInt(String.valueOf(SP_IDUSER),2);

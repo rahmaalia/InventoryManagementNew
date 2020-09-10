@@ -58,8 +58,12 @@ public class DipinjamFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dipinjam, container, false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
 
-        final Intent intent = getActivity().getIntent();
-        akun_id = intent.getIntExtra("id_akun",1);
+        sharedPrefManager = new SharedPrefManager(getContext());
+        akun_id = sharedPrefManager.getSpIduser();
+
+//        final Intent intent = getActivity().getIntent();
+//        id_akun = intent.getIntExtra("id_akun",1);
+//        akun_id = id_akun;
 
         tvNamaBarang = view.findViewById(R.id.tvNamabarang);
         tvStok = view.findViewById(R.id.tvStok);
