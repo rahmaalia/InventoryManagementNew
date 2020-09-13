@@ -66,6 +66,7 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
                         Intent i = new Intent(mContext, PeminjamanActivity.class);
                         i.putExtra("nama_barang",peminjamanList.get(position).getNamaBarang());
                         i.putExtra("stok_barang",peminjamanList.get(position).getStokBarang());
+                        i.putExtra("id_barang",peminjamanList.get(position).getIdBarang());
 //                        i.putExtra("stok_barang",peminjamanList);
                         mContext.startActivity(i);
                     }

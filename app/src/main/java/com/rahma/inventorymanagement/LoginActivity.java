@@ -77,22 +77,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             try {
                                 JSONObject JSONResult = new JSONObject(response.body().string());
                                 if (JSONResult.getString("status").equals("true")){
-                                    Toast.makeText(mContext, "Berhasil login", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
+                                    if (JSONResult.getJSONObject("data").getString("role_id").equals("2")){
+                                        Intent intent=new Intent(LoginActivity.this,BerandaPetugas.class);
+                                        startActivity(intent);
+                                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN_ADMIN, true);
+                                        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                        finish();
+                                    }
+                                    else {
+                                        Toast.makeText(mContext, "Berhasil login", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
 //                                          String nama = jsonRESULT.getJSONObject("data").getString("nama");
-                                            String username = JSONResult.getJSONObject("data").getString("username");
-                                            int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
-                                            int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
-                                            Log.d("username", "user" + username);
-                                            Log.d("id_akun", "id_akun" + idakun);
+                                        String username = JSONResult.getJSONObject("data").getString("username");
+                                        int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
+                                        int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
+                                        Log.d("username", "user" + username);
+                                        Log.d("id_akun", "id_akun" + idakun);
 
 
-                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
-                                            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN, true);
-                                            sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusan);
-                                            sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDUSER), idakun);
-                                            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                            finish();
+                                        sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
+                                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN, true);
+                                        sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusan);
+                                        sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDUSER), idakun);
+                                        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                        finish();
+                                    }
                                 }
                                 else{
                                     String error = JSONResult.getString("error");

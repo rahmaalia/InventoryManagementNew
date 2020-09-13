@@ -1,8 +1,11 @@
-package com.rahma.inventorymanagement;
+package com.rahma.inventorymanagement.adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.rahma.inventorymanagement.BarangFragment;
+import com.rahma.inventorymanagement.DipinjamFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 

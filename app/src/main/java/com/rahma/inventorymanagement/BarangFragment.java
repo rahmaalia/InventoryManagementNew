@@ -79,7 +79,6 @@ public class BarangFragment extends Fragment {
                 }else{
                     Toast.makeText(getActivity(),"gagal",Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override

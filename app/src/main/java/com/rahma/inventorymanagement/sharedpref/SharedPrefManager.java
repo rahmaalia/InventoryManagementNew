@@ -11,6 +11,7 @@ public class SharedPrefManager {
     public static final int SP_IDUSER = 2;
 
     public static final String SP_LOGIN="spLogin";
+    public static final String SP_LOGIN_ADMIN="spLoginAdmin";
 
 
 
@@ -42,6 +43,10 @@ public class SharedPrefManager {
     public Boolean getSpLogin(){
         return sp.getBoolean(SP_LOGIN, false);
     }
+    public Boolean getSpLoginAdmin() {
+        return sp.getBoolean(SP_LOGIN_ADMIN,false);
+    }
+
     public int getSpIdjurusan(){
         return sp.getInt(String.valueOf(SP_IDJURUSAN),1);
     }

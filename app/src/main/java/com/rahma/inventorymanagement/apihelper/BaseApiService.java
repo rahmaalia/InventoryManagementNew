@@ -17,6 +17,16 @@ public interface BaseApiService {
     Call<ResponseBody> loginRequest(@Field("username") String username,
                                     @Field("kata_sandi") String kata_sandi);
 
+    @FormUrlEncoded
+    @POST("inputPeminjaman")
+    Call<ResponseBody> peminjamanRequest (@Field("barang_id") int barang_id,
+                                          @Field("akun_id") int akun_id,
+                                          @Field("status_permintaan") String status_permintaan,
+                                          @Field("jumlah_pinjam") String jumlah_pinjam ,
+                                          @Field("tanggal_peminjaman") String tanggal_peminjaman,
+                                          @Field("tanggal_pengembalian") String tanggal_pengembalian);
+
+
     @GET("pinjam/{akun_id}")
     Call<EDipinjam> getPinjam (@Path("akun_id") int akun_id);
 

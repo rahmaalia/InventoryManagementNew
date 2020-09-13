@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".BerandaPetugas">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabBarPetugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabPermintaanPetugas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permintaan" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabDipinjamPetugas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dipinjam" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabBarangPetugas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barang_tersedia" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerPetugas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>

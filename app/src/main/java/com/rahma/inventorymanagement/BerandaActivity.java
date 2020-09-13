@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.rahma.inventorymanagement.adapter.PagerAdapter;
 
 public class BerandaActivity extends AppCompatActivity {
 
@@ -64,9 +65,9 @@ public class BerandaActivity extends AppCompatActivity {
             case R.id.riwayatMenu:
                 startActivity(new Intent(BerandaActivity.this, RiwayatActivity.class));
                 return true;
-            case R.id.keluarMenu:
-                Toast.makeText(this, "Keluar", Toast.LENGTH_SHORT).show();
-                return true;
+//            case R.id.keluarMenu:
+//                Toast.makeText(this, "Keluar", Toast.LENGTH_SHORT).show();
+//                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

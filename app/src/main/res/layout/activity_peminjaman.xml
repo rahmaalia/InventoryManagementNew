@@ -41,6 +41,7 @@
         android:textColor="@color/colorPrimary"/>
 
     <RadioGroup
+        android:id="@+id/rgTanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -49,9 +50,9 @@
             android:id="@+id/rbTanggal1"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:text="22/02/2020"
             android:gravity="center"
             android:elevation="4dp"
+            android:text=" "
             android:textColor="@drawable/text_color"
             android:button="@android:color/transparent"
             android:background="@drawable/radio_selector"
@@ -60,24 +61,25 @@
             android:id="@+id/rbTanggal2"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:text="22/02/2020"
             android:gravity="center"
             android:elevation="4dp"
             android:textColor="@drawable/text_color"
+            android:text=" "
             android:button="@android:color/transparent"
             android:background="@drawable/radio_selector"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:checked="true"/>
         <RadioButton
             android:id="@+id/rbTanggal3"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:text="22/02/2020"
             android:gravity="center"
             android:elevation="4dp"
             android:textColor="@drawable/text_color"
             android:button="@android:color/transparent"
             android:background="@drawable/radio_selector"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:text=" "/>
     </RadioGroup>
 
     <RelativeLayout
@@ -102,7 +104,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="50"
-                android:textColor="#000"/>
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -120,23 +124,29 @@
                 android:textColor="@color/colorPrimary"/>
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="34dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
+
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@drawable/ic_remove_circle"/>
+                    android:id="@+id/btnKurang"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_remove_circle" />
                 <TextView
                     android:id="@+id/tvJumlahbarangPost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="1"/>
+                    android:text="1"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:layout_gravity="center"/>
                 <Button
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:id="@+id/btnTambah"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@drawable/ic_add_circle"/>
             </LinearLayout>
         </LinearLayout>

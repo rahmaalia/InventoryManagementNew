@@ -86,6 +86,7 @@ public class DipinjamFragment extends Fragment {
                     Log.d( "onResponse: " , dipinjams.toString());
                      rvDipinjam.setAdapter(dipinjamAdapter);
                      dipinjamAdapter.notifyDataSetChanged();
+
                 }else{
                     Toast.makeText(getActivity(),"gagal",Toast.LENGTH_SHORT).show();
                 }

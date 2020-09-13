@@ -9,8 +9,8 @@
         android:id="@+id/riwayatMenu"
         app:showAsAction="never"
         android:title="Riwayat"></item>
-    <item
-        android:id="@+id/keluarMenu"
-        app:showAsAction="never"
-        android:title="Keluar"></item>
+<!--    <item-->
+<!--        android:id="@+id/keluarMenu"-->
+<!--        app:showAsAction="never"-->
+<!--        android:title="Keluar"></item>-->
 </menu>
