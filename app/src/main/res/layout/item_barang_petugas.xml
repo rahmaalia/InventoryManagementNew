@@ -5,36 +5,33 @@
     android:padding="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBarangPetugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvPeminjaman"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+            android:layout_margin="10dp">
 
             <TextView
-                android:id="@+id/tvNamaBarangPeminjaman"
+                android:id="@+id/tvNamaBarangPetugas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="nama barang"
                 android:textSize="20dp"
                 android:textColor="#000000"/>
             <TextView
-                android:id="@+id/tvStokPeminjaman"
+                android:id="@+id/tvStokPetugas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:layout_alignParentRight="true"
                 android:textSize="20dp"
                 android:textColor="#F44336"/>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

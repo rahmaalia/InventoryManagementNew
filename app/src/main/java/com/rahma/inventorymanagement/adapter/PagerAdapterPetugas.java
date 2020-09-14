@@ -4,9 +4,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.rahma.inventorymanagement.BarangFragmentPetugas;
-import com.rahma.inventorymanagement.DipinjamFragmentPetugas;
-import com.rahma.inventorymanagement.PermintaanFragmentPetugas;
+import com.rahma.inventorymanagement.fragment.BarangFragmentPetugas;
+import com.rahma.inventorymanagement.fragment.DipinjamFragmentPetugas;
+import com.rahma.inventorymanagement.fragment.PermintaanFragmentPetugas;
 
 public class PagerAdapterPetugas extends FragmentPagerAdapter{
 

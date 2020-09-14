@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         String username = JSONResult.getJSONObject("data").getString("username");
                                         int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
                                         int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
+                                        int idkelas = JSONResult.getJSONObject("data").getInt("kelas_id");
                                         Log.d("username", "user" + username);
                                         Log.d("id_akun", "id_akun" + idakun);
 
@@ -99,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN, true);
                                         sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusan);
                                         sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDUSER), idakun);
+                                        sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDKELAS), idkelas);
                                         startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                         finish();
                                     }

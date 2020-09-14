@@ -1,4 +1,4 @@
-package com.rahma.inventorymanagement;
+package com.rahma.inventorymanagement.fragment;
 
 
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rahma.inventorymanagement.R;
 import com.rahma.inventorymanagement.adapter.DipinjamAdapter;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
@@ -86,7 +87,7 @@ public class DipinjamFragment extends Fragment {
                     Log.d( "onResponse: " , dipinjams.toString());
                      rvDipinjam.setAdapter(dipinjamAdapter);
                      dipinjamAdapter.notifyDataSetChanged();
-
+                     
                 }else{
                     Toast.makeText(getActivity(),"gagal",Toast.LENGTH_SHORT).show();
                 }

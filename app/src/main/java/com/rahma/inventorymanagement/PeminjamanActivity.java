@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
+import com.rahma.inventorymanagement.fragment.DipinjamFragment;
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
 
 import org.json.JSONException;
@@ -38,7 +39,7 @@ public class PeminjamanActivity extends AppCompatActivity {
     RadioGroup rgTanggall;
     String status,tanggal_peminjaman,tanggal_pengembalian,jumlahBarang;
     View view;
-    int akun_id;
+    int akun_id,selected,kelas_id,jurusan_id;
     private int mCount = 1;
     private final String COUNT_KEY = "count";
 
@@ -58,8 +59,7 @@ public class PeminjamanActivity extends AppCompatActivity {
         btnKurang = findViewById(R.id.btnKurang);
         tvJumlahbrng =findViewById(R.id.tvJumlahbarangPost);
         rgTanggall = (RadioGroup) findViewById(R.id.rgTanggal);
-        int selected = rgTanggall.getCheckedRadioButtonId();
-        rbSemua = findViewById(selected);
+
 
 
         final Intent intent= getIntent();
@@ -69,6 +69,8 @@ public class PeminjamanActivity extends AppCompatActivity {
         final int stok = intent.getIntExtra("stok_barang",1);
         final int id_barang = intent.getIntExtra("id_barang",1);
         akun_id = sharedPrefManager.getSpIduser();
+        kelas_id = sharedPrefManager.getSpIdkelas();
+        jurusan_id = sharedPrefManager.getSpIdjurusan();
 
         //BUTTON TAMBAH JUMLAH PINJAM
         btnTambah.setOnClickListener(new View.OnClickListener() {
@@ -119,25 +121,23 @@ public class PeminjamanActivity extends AppCompatActivity {
         tanggal2.setText("" +tgl +"/"+""+month+"/"+""+thisYear);
         tanggal3.setText("" +tgl2 +"/"+""+month+"/"+""+thisYear);
 
-
-
-
-        tanggal_pengembalian = rbSemua.getText().toString();
-
-        tanggalPinjam();
-
         status ="diminta";
         btnPinjam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    mApiService.peminjamanRequest(id_barang,akun_id,status,jumlahBarang,tanggal_peminjaman,tanggal_pengembalian).enqueue(new Callback<ResponseBody>() {
+                selected = rgTanggall.getCheckedRadioButtonId();
+                rbSemua = findViewById(selected);
+                    mApiService.peminjamanRequest(id_barang,akun_id,kelas_id,jurusan_id,status,jumlahBarang,tanggal_peminjaman,rbSemua.getText().toString()).enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             if (response.isSuccessful()){
                                 try {
                                     JSONObject jsonObject = new JSONObject(response.body().string());
                                     if (jsonObject.getString("status").equals("true")){
-                                        Toast.makeText(PeminjamanActivity.this, "berjasil", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PeminjamanActivity.this, "berhasil", Toast.LENGTH_SHORT).show();
+                                        Intent intent=new Intent(PeminjamanActivity.this, BerandaActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }else {
                                         Toast.makeText(PeminjamanActivity.this, "gagal", Toast.LENGTH_SHORT).show();
                                     }
@@ -156,9 +156,6 @@ public class PeminjamanActivity extends AppCompatActivity {
                     });
             }
         });
-    }
-
-    private void tanggalPinjam() {
     }
 
 

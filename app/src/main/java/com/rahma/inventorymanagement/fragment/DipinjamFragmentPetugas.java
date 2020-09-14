@@ -1,4 +1,4 @@
-package com.rahma.inventorymanagement;
+package com.rahma.inventorymanagement.fragment;
 
 
 import android.os.Bundle;
@@ -9,14 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rahma.inventorymanagement.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BarangFragmentPetugas extends Fragment {
+public class DipinjamFragmentPetugas extends Fragment {
 
 
-    public BarangFragmentPetugas() {
+    public DipinjamFragmentPetugas() {
         // Required empty public constructor
     }
 
@@ -25,7 +27,7 @@ public class BarangFragmentPetugas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_barang_fragment_petugas, container, false);
+        return inflater.inflate(R.layout.fragment_dipinjam_petugas, container, false);
     }
 
 }

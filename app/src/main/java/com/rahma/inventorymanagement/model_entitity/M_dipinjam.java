@@ -22,6 +22,9 @@ public class M_dipinjam {
     @SerializedName("jumlah_pinjam")
     @Expose
     private Integer jumlahPinjam;
+    @SerializedName("status_permintaan")
+    @Expose
+    private String status_permintaan;
 
     public Integer getBarangId() {
         return barangId;
@@ -69,6 +72,14 @@ public class M_dipinjam {
 
     public void setJumlahPinjam(Integer jumlahPinjam) {
         this.jumlahPinjam = jumlahPinjam;
+    }
+
+    public String getStatus_permintaan() {
+        return status_permintaan;
+    }
+
+    public void setStatus_permintaan(String status_permintaan) {
+        this.status_permintaan = status_permintaan;
     }
 
     @Override

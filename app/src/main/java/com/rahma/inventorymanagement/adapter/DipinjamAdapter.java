@@ -42,6 +42,7 @@ public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.Dipinj
         holder.stok.setText(String.valueOf(mDipinjam.getJumlahPinjam()));
         holder.tgl_pinjam.setText(mDipinjam.getTanggalPeminjaman());
         holder.tgl_kembali.setText(mDipinjam.getTanggalPengembalian());
+        holder.status.setText(mDipinjam.getStatus_permintaan());
 
         Log.d("onBindViewHolder: ", mDipinjam.toString());
     }
@@ -52,7 +53,7 @@ public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.Dipinj
     }
 
     public class DipinjamViewHolder extends RecyclerView.ViewHolder {
-       public final TextView namabarang,stok,tgl_pinjam,tgl_kembali;
+       public final TextView namabarang,stok,tgl_pinjam,tgl_kembali,status;
         public DipinjamViewHolder(@NonNull View itemView) {
             super(itemView);
             namabarang = itemView.findViewById(R.id.tvNamabarang);
@@ -60,7 +61,7 @@ public class DipinjamAdapter extends RecyclerView.Adapter<DipinjamAdapter.Dipinj
             tgl_pinjam = itemView.findViewById(R.id.tvTglPinjam);
             tgl_kembali = itemView.findViewById(R.id.tvTglKembali);
             cardView = itemView.findViewById(R.id.cvDipinjam);
-
+            status = itemView.findViewById(R.id.tvStatus);
         }
     }
 }
