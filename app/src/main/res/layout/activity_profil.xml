@@ -24,15 +24,15 @@
         android:orientation="vertical"
         android:gravity="center">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_profil"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                app:civ_border_width="4dp"
-                app:civ_border_color="@color/colorPrimary"
-                android:src="@drawable/avatar"
-                android:layout_marginBottom="10dp">
-            </de.hdodenhof.circleimageview.CircleImageView>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profil"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="@color/colorPrimary"
+            android:src="@drawable/avatar"
+            android:layout_marginBottom="10dp">
+        </de.hdodenhof.circleimageview.CircleImageView>
 
 
 
@@ -48,7 +48,33 @@
             android:textColor="@color/colorPrimary"
             android:textSize="25dp"
             android:text="Nazif Aditya" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XII"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" RPL A"/>
+        </LinearLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -52,6 +52,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(LoginActivity.this, BerandaActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             finish();
+        }else if(sharedPrefManager.getSpLoginAdmin()){
+            startActivity(new Intent(LoginActivity.this, BerandaPetugas.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
         }
         Button btnMoveActivity = findViewById(R.id.btnLogin);
         btnMoveActivity.setOnClickListener(this);
@@ -79,15 +83,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 if (JSONResult.getString("status").equals("true")){
                                     if (JSONResult.getJSONObject("data").getString("role_id").equals("2")){
                                         Intent intent=new Intent(LoginActivity.this,BerandaPetugas.class);
-                                        startActivity(intent);
+                                        int idjurusann = JSONResult.getJSONObject("data").getInt("jurusan_id");
+
                                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN_ADMIN, true);
+                                        sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusann);
                                         startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                         finish();
                                     }
                                     else {
                                         Toast.makeText(mContext, "Berhasil login", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
-//                                          String nama = jsonRESULT.getJSONObject("data").getString("nama");
                                         String username = JSONResult.getJSONObject("data").getString("username");
                                         int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
                                         int idakun = JSONResult.getJSONObject("data").getInt("id_akun");

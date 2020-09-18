@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.rahma.inventorymanagement.R;
 import com.rahma.inventorymanagement.adapter.PermintaanPetugasAdapter;
+import com.rahma.inventorymanagement.adapter.PermintaanPetugasAdapter2;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
 import com.rahma.inventorymanagement.model_entitity.E_permintaan;
@@ -36,11 +37,13 @@ import retrofit2.Response;
 public class PermintaanFragmentPetugas extends Fragment {
     BaseApiService mApiService;
     PermintaanPetugasAdapter permintaanPetugasAdapter;
-    TextView namaSiswa,kelas,namaBarang,stok,tglPinjam,tglKembali,status;
+    TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
     RecyclerView rvPermintaan;
     List<E_permintaan> permintaans;
+    E_permintaan ePermintaan;
     SharedPrefManager sharedPrefManager;
     Button btnACC,btnBatal;
+    String statuss,statusss;
     int jurusan_id;
 
     public PermintaanFragmentPetugas() {
@@ -57,26 +60,32 @@ public class PermintaanFragmentPetugas extends Fragment {
 
         jurusan_id = sharedPrefManager.getSpIdjurusan();
 
+        statusss = "dipinjam";
+
         namaSiswa = view.findViewById(R.id.tvNamaSiswa);
         kelas = view.findViewById(R.id.tvKelas);
         namaBarang = view.findViewById(R.id.tvNBPermintaan);
         stok = view.findViewById(R.id.tvStokPermintaan);
-        tglPinjam = view.findViewById(R.id.tvTanggalPinjam);
-        tglKembali = view.findViewById(R.id.tvTanggalKembali);
+        tglPinjamm = view.findViewById(R.id.tvTanggalPinjam);
+        tglKembalii = view.findViewById(R.id.tvTanggalKembali);
         status = view.findViewById(R.id.tvStatusPermintaanP);
         rvPermintaan = view.findViewById(R.id.rvPermintaan);
         btnACC = view.findViewById(R.id.btnAcc);
         btnBatal = view.findViewById(R.id.btnBatal);
         
         getPermintaan();
+//        statuss = ePermintaan.getStatusPermintaan();
         mApiService.getPermintaan(jurusan_id).enqueue(new Callback<M_permintaan>() {
             @Override
             public void onResponse(Call<M_permintaan> call, Response<M_permintaan> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     permintaans = response.body().getData();
+//                    if (statuss == "dipinjam"){
+//                        rvPermintaan.setVisibility(View.GONE);
+//                    }
 
-                    permintaanPetugasAdapter = new PermintaanPetugasAdapter(getActivity(),permintaans);
+                    permintaanPetugasAdapter = new PermintaanPetugasAdapter(getContext(),permintaans);
                     rvPermintaan.setAdapter(permintaanPetugasAdapter);
                     permintaanPetugasAdapter.notifyDataSetChanged();
                 }else {

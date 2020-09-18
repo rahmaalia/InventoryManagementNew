@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/ly"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvPermintaan"
+        android:id="@+id/cvHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
@@ -25,43 +23,21 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvNamaSiswa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama Siswa"
-                    android:textSize="18dp"
-                    android:textColor="#000000"/>
-
-                <TextView
-                    android:id="@+id/tvKelas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="kelas"
-                    android:layout_alignParentRight="true"
-                    android:textSize="20dp"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TextView
-                    android:id="@+id/tvNBPermintaan"
+                    android:id="@+id/tvNamabarangHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Barang"
-                    android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:textSize="18dp"
+                    android:textColor="#000000" />
 
                 <TextView
-                    android:id="@+id/tvStokPermintaan"
+                    android:id="@+id/tvStokHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="0"
-                    android:textSize="18sp"
-                    android:textColor="#E06C39" />
+                    android:textSize="20sp"
+                    android:textColor="#E06C39"/>
 
             </RelativeLayout>
 
@@ -93,7 +69,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvTanggalPinjam"
+                    android:id="@+id/tvTglPinjamHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1/12/2020"
@@ -103,7 +79,7 @@
 
 
                 <TextView
-                    android:id="@+id/tvTanggalKembali"
+                    android:id="@+id/tvTglKembaliHistory"
                     android:layout_width="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_height="wrap_content"
@@ -120,7 +96,7 @@
         android:layout_marginTop="-30dp">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             app:cardCornerRadius="10dp"
             app:cardBackgroundColor="@color/colorPrimary"
@@ -128,47 +104,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:gravity="center">
 
                 <TextView
-                android:id="@+id/tvStatusPermintaanP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="16dp"
-                android:text="Dikembalikan"
-                android:textColor="#fff"
-                android:textSize="17dp" />
-
-                <Button
-                    android:id="@+id/btnAcc"
-                    android:layout_width="60dp"
-                    android:layout_height="22dp"
-                    android:layout_marginTop="18dp"
-                    android:background="#4CAF50"
-                    android:text="terima"
-                    android:textColor="#ffffff"
-                    android:textAllCaps="false"
-                    android:layout_alignParentRight="true"/>
-
-                <Button
-                    android:id="@+id/btnBatal"
-                    android:layout_width="60dp"
-                    android:layout_height="22dp"
-                    android:layout_marginTop="18dp"
-                    android:background="#F44336"
-                    android:text="tolak"
-                    android:textAllCaps="false"
-                    android:textColor="#ffffff"
-                    android:layout_toLeftOf="@+id/btnAcc"
-                    android:layout_marginRight="10dp"/>
-            </RelativeLayout>
+                    android:id="@+id/tvStatusHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dipinjam"
+                    android:textSize="17dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#fff"/>
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
 </LinearLayout>

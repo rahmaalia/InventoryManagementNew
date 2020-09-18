@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rahma.inventorymanagement.R;
+import com.rahma.inventorymanagement.adapter.BarangPetugasAdapter;
 import com.rahma.inventorymanagement.adapter.PeminjamanAdapter;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
@@ -36,7 +37,7 @@ import retrofit2.Response;
  */
 public class BarangFragmentPetugas extends Fragment {
     BaseApiService mApiService;
-    PeminjamanAdapter peminjamanAdapter;
+    BarangPetugasAdapter barangPetugasAdapter;
     TextView tvNamaBarang,tvStok;
     RecyclerView rvPeminjaman;
     List<E_peminjaman> peminjamans;
@@ -68,10 +69,10 @@ public class BarangFragmentPetugas extends Fragment {
                     Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     peminjamans = response.body().getData();
 
-                    peminjamanAdapter = new PeminjamanAdapter(getActivity(),peminjamans);
+                    barangPetugasAdapter = new BarangPetugasAdapter(getActivity(),peminjamans);
                     Log.d("onResponse", peminjamans.toString());
-                    rvPeminjaman.setAdapter(peminjamanAdapter);
-                    peminjamanAdapter.notifyDataSetChanged();
+                    rvPeminjaman.setAdapter(barangPetugasAdapter);
+                    barangPetugasAdapter.notifyDataSetChanged();
                 }else{
                     Toast.makeText(getActivity(),"gagal",Toast.LENGTH_SHORT).show();
                 }

@@ -1,6 +1,7 @@
 package com.rahma.inventorymanagement.apihelper;
 
 import com.rahma.inventorymanagement.model_entitity.EDipinjam;
+import com.rahma.inventorymanagement.model_entitity.M_DipinjamPetugas;
 import com.rahma.inventorymanagement.model_entitity.M_peminjaman;
 import com.rahma.inventorymanagement.model_entitity.M_permintaan;
 
@@ -40,8 +41,14 @@ public interface BaseApiService {
     @GET("getPermintaan/{jurusan_id}")
     Call<M_permintaan> getPermintaan(@Path("jurusan_id")int jurusan_id);
 
+    @GET("getDipinjam/{jurusan_id}")
+    Call<M_DipinjamPetugas> getDipinjam(@Path("jurusan_id")int jurusan_id);
+
     @FormUrlEncoded
     @PUT("Permintaan/{id}")
     Call<ResponseBody> updateStatus(@Path("id")int id,
                                     @Field("status_permintaan") String status_permintaan);
+
+    @GET("history_siswa/{akun_id}")
+    Call<EDipinjam> getHistory (@Path("akun_id") int akun_id);
 }

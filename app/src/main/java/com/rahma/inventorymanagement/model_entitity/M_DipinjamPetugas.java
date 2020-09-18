@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class EDipinjam {
+public class M_DipinjamPetugas {
     @SerializedName("status")
     @Expose
     private Boolean status;

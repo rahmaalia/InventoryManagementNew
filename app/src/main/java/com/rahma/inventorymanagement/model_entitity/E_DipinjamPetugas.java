@@ -3,7 +3,7 @@ package com.rahma.inventorymanagement.model_entitity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class E_permintaan {
+public class E_DipinjamPetugas {
     @SerializedName("id_permintaan")
     @Expose
     private Integer idPermintaan;
@@ -150,7 +150,6 @@ public class E_permintaan {
     public void setUsername(String username) {
         this.username = username;
     }
-
     public String getAngkatan() {
         return angkatan;
     }
@@ -159,4 +158,14 @@ public class E_permintaan {
         this.angkatan = angkatan;
     }
 
+    @Override
+    public String toString() {
+        return "E_permintaan{" +
+                "status_permintaan=" + statusPermintaan +
+                ", namaBarang='" + namaBarang + '\'' +
+                ", tanggalPinjam=" + tanggalPeminjaman +
+                ", tanggalBalik=" + tanggalPengembalian +
+                ", id=" + idPermintaan +
+                '}';
+    }
 }

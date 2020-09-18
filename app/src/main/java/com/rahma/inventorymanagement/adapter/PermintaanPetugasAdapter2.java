@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,13 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rahma.inventorymanagement.BerandaActivity;
 import com.rahma.inventorymanagement.BerandaPetugas;
-import com.rahma.inventorymanagement.PeminjamanActivity;
 import com.rahma.inventorymanagement.R;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
-import com.rahma.inventorymanagement.fragment.DipinjamFragmentPetugas;
 import com.rahma.inventorymanagement.model_entitity.E_permintaan;
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
 
@@ -35,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPetugasAdapter.PermintaanViewHolder> {
+public class PermintaanPetugasAdapter2 extends RecyclerView.Adapter<PermintaanPetugasAdapter2.GridViewHolder> {
     private List<E_permintaan> permintaanList;
     Context mContext;
     CardView cardView;
@@ -45,23 +43,23 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
     int id_permintaan;
     Button btnAcc;
 
-    public PermintaanPetugasAdapter(Context mContext, List<E_permintaan> ePermintaans){
+    public PermintaanPetugasAdapter2(Context mContext, List<E_permintaan> ePermintaans){
         this.mContext = mContext;
         permintaanList = ePermintaans;
     }
 
     @NonNull
     @Override
-    public PermintaanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_permintaan_petugas,parent,false);
+    public GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_permintaan_petugas,parent,false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
-        return new PermintaanPetugasAdapter.PermintaanViewHolder(view);
+        return new PermintaanPetugasAdapter2.GridViewHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PermintaanViewHolder holder, int position) {
-       final E_permintaan ePermintaan = permintaanList.get(position);
+    public void onBindViewHolder(@NonNull PermintaanPetugasAdapter2.GridViewHolder holder, int position) {
+        final E_permintaan ePermintaan = permintaanList.get(position);
         holder.namaSiswa.setText(ePermintaan.getUsername());
         holder.kelas.setText(ePermintaan.getAngkatan());
         holder.namaBarang.setText(ePermintaan.getNamaBarang());
@@ -70,7 +68,12 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
         holder.tglKembalii.setText(ePermintaan.getTanggalPengembalian());
         holder.status.setText(ePermintaan.getStatusPermintaan());
         holder.tglPinjamm.setText(ePermintaan.getTanggalPeminjaman());
-
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext,""+ePermintaan.getIdPermintaan(),Toast.LENGTH_SHORT).show();
+            }
+        });
         statuss = "dipinjam";
         holder.btnAcc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,23 +111,18 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
             }
         });
         Log.d("onBindViewHolder: ", ePermintaan.toString());
-
-
-//        Toast.makeText(mContext,""+id_permintaan,Toast.LENGTH_SHORT).show();
-
-
     }
 
     @Override
     public int getItemCount() {
         return permintaanList.size();
     }
-
-    public class PermintaanViewHolder extends RecyclerView.ViewHolder {
-        public final TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
+    public class GridViewHolder extends RecyclerView.ViewHolder {
+     TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
         public final Button btnAcc,btnBatal;
+        LinearLayout linearLayout;
 
-        public PermintaanViewHolder(@NonNull View itemView) {
+        public GridViewHolder(@NonNull View itemView) {
             super(itemView);
             namaSiswa = itemView.findViewById(R.id.tvNamaSiswa);
             kelas = itemView.findViewById(R.id.tvKelas);
@@ -135,14 +133,15 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
             status = itemView.findViewById(R.id.tvStatusPermintaanP);
             btnAcc = itemView.findViewById(R.id.btnAcc);
             btnBatal = itemView.findViewById(R.id.btnBatal);
+            linearLayout=itemView.findViewById(R.id.ly);
             cardView = itemView.findViewById(R.id.cvPermintaan);
 
 //            id_permintaan = ePermintaan.getIdPermintaan();
 
-                    }
-
-
-
-
         }
+
+
+
+
     }
+}

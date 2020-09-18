@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:id="@+id/ly"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
@@ -98,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:text="1/12/2020"
                     android:textSize="20sp"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="#000"/>
 
 
 
@@ -130,43 +129,43 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:padding="10dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                android:id="@+id/tvStatusPermintaanP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="16dp"
-                android:text="Dikembalikan"
-                android:textColor="#fff"
-                android:textSize="17dp" />
+                    <TextView
+                        android:id="@+id/tvStatusPermintaanP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="16dp"
+                        android:text="Dikembalikan"
+                        android:textColor="#fff"
+                        android:textSize="17dp" />
 
-                <Button
-                    android:id="@+id/btnAcc"
-                    android:layout_width="60dp"
-                    android:layout_height="22dp"
-                    android:layout_marginTop="18dp"
-                    android:background="#4CAF50"
-                    android:text="terima"
-                    android:textColor="#ffffff"
-                    android:textAllCaps="false"
-                    android:layout_alignParentRight="true"/>
+                    <Button
+                        android:id="@+id/btnAcc"
+                        android:layout_width="60dp"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#4CAF50"
+                        android:text="terima"
+                        android:textColor="#ffffff"
+                        android:textAllCaps="false"
+                        android:layout_alignParentRight="true"/>
 
-                <Button
-                    android:id="@+id/btnBatal"
-                    android:layout_width="60dp"
-                    android:layout_height="22dp"
-                    android:layout_marginTop="18dp"
-                    android:background="#F44336"
-                    android:text="tolak"
-                    android:textAllCaps="false"
-                    android:textColor="#ffffff"
-                    android:layout_toLeftOf="@+id/btnAcc"
-                    android:layout_marginRight="10dp"/>
-            </RelativeLayout>
+                    <Button
+                        android:id="@+id/btnBatal"
+                        android:layout_width="60dp"
+                        android:layout_height="22dp"
+                        android:layout_marginTop="18dp"
+                        android:background="#F44336"
+                        android:text="tolak"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:layout_toLeftOf="@+id/btnAcc"
+                        android:layout_marginRight="10dp"/>
+                </RelativeLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>

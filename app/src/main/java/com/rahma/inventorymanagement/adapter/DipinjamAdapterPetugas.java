@@ -2,7 +2,6 @@ package com.rahma.inventorymanagement.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rahma.inventorymanagement.BerandaActivity;
 import com.rahma.inventorymanagement.BerandaPetugas;
-import com.rahma.inventorymanagement.PeminjamanActivity;
 import com.rahma.inventorymanagement.R;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
-import com.rahma.inventorymanagement.fragment.DipinjamFragmentPetugas;
+import com.rahma.inventorymanagement.model_entitity.E_DipinjamPetugas;
 import com.rahma.inventorymanagement.model_entitity.E_permintaan;
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
 
@@ -35,50 +32,45 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPetugasAdapter.PermintaanViewHolder> {
-    private List<E_permintaan> permintaanList;
+public class DipinjamAdapterPetugas extends RecyclerView.Adapter<DipinjamAdapterPetugas.DipinjamPetugasViewHolder> {
+    private List<E_DipinjamPetugas> dipinjamPetugasList;
+    E_DipinjamPetugas eDipinjamPetugas;
     Context mContext;
     CardView cardView;
     SharedPrefManager sharedPrefManager;
     BaseApiService mApiService;
-    String statuss,tglmasuk;
-    int id_permintaan;
-    Button btnAcc;
+    String status;
 
-    public PermintaanPetugasAdapter(Context mContext, List<E_permintaan> ePermintaans){
+    public DipinjamAdapterPetugas(Context mContext, List<E_DipinjamPetugas> eDipinjamPetugases){
         this.mContext = mContext;
-        permintaanList = ePermintaans;
+        dipinjamPetugasList = eDipinjamPetugases;
     }
 
     @NonNull
     @Override
-    public PermintaanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_permintaan_petugas,parent,false);
+    public DipinjamPetugasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dipinjam_petugas,parent,false);
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
-        return new PermintaanPetugasAdapter.PermintaanViewHolder(view);
-
+        return new DipinjamAdapterPetugas.DipinjamPetugasViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PermintaanViewHolder holder, int position) {
-       final E_permintaan ePermintaan = permintaanList.get(position);
-        holder.namaSiswa.setText(ePermintaan.getUsername());
-        holder.kelas.setText(ePermintaan.getAngkatan());
-        holder.namaBarang.setText(ePermintaan.getNamaBarang());
-        holder.stok.setText(String.valueOf(ePermintaan.getJumlahPinjam()));
+    public void onBindViewHolder(@NonNull DipinjamAdapterPetugas.DipinjamPetugasViewHolder holder, int position) {
+        eDipinjamPetugas = dipinjamPetugasList.get(position);
+        holder.namaSiswa.setText(eDipinjamPetugas.getUsername());
+        holder.kelas.setText(eDipinjamPetugas.getAngkatan());
+        holder.namaBarang.setText(eDipinjamPetugas.getNamaBarang());
+        holder.stok.setText(String.valueOf(eDipinjamPetugas.getJumlahPinjam()));
+        holder.tglPinjamm.setText(String.valueOf(eDipinjamPetugas.getTanggalPeminjaman()));
+//        holder.tglPinjamm.setText(ePermintaan.getTanggalPeminjaman());
+        holder.tglKembalii.setText(eDipinjamPetugas.getTanggalPengembalian());
+        holder.status.setText(eDipinjamPetugas.getStatusPermintaan());
 
-        holder.tglKembalii.setText(ePermintaan.getTanggalPengembalian());
-        holder.status.setText(ePermintaan.getStatusPermintaan());
-        holder.tglPinjamm.setText(ePermintaan.getTanggalPeminjaman());
-
-        statuss = "dipinjam";
-        holder.btnAcc.setOnClickListener(new View.OnClickListener() {
+        status = "dikembalikan";
+        holder.btnDikembalikan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                    int position = getAdapterPosition();
-//                    if (position != RecyclerView.NO_POSITION){
-//                        Toast.makeText(mContext,""+ePermintaan.getNamaBarang(),Toast.LENGTH_SHORT).show();
-                mApiService.updateStatus(ePermintaan.getIdPermintaan(),statuss).enqueue(new Callback<ResponseBody>() {
+                mApiService.updateStatus(eDipinjamPetugas.getIdPermintaan(),status).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()){
@@ -107,42 +99,26 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
                 });
             }
         });
-        Log.d("onBindViewHolder: ", ePermintaan.toString());
-
-
-//        Toast.makeText(mContext,""+id_permintaan,Toast.LENGTH_SHORT).show();
-
-
     }
 
     @Override
     public int getItemCount() {
-        return permintaanList.size();
+        return dipinjamPetugasList.size();
     }
 
-    public class PermintaanViewHolder extends RecyclerView.ViewHolder {
+    public class DipinjamPetugasViewHolder extends RecyclerView.ViewHolder {
         public final TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
-        public final Button btnAcc,btnBatal;
-
-        public PermintaanViewHolder(@NonNull View itemView) {
+        public final Button btnDikembalikan;
+        public DipinjamPetugasViewHolder(@NonNull View itemView) {
             super(itemView);
-            namaSiswa = itemView.findViewById(R.id.tvNamaSiswa);
-            kelas = itemView.findViewById(R.id.tvKelas);
-            namaBarang = itemView.findViewById(R.id.tvNBPermintaan);
-            stok = itemView.findViewById(R.id.tvStokPermintaan);
-            tglPinjamm = itemView.findViewById(R.id.tvTanggalPinjam);
-            tglKembalii = itemView.findViewById(R.id.tvTanggalKembali);
-            status = itemView.findViewById(R.id.tvStatusPermintaanP);
-            btnAcc = itemView.findViewById(R.id.btnAcc);
-            btnBatal = itemView.findViewById(R.id.btnBatal);
-            cardView = itemView.findViewById(R.id.cvPermintaan);
-
-//            id_permintaan = ePermintaan.getIdPermintaan();
-
-                    }
-
-
-
-
+            namaSiswa = itemView.findViewById(R.id.tvNamaSiswaDiminta);
+            kelas = itemView.findViewById(R.id.tvKelasDiminta);
+            namaBarang = itemView.findViewById(R.id.tvNBDiminta);
+            stok = itemView.findViewById(R.id.tvStokPermintaanDiminta);
+            tglPinjamm = itemView.findViewById(R.id.tvTanggalPinjamDiminta);
+            tglKembalii = itemView.findViewById(R.id.tvTanggalKembaliDiminta);
+            status = itemView.findViewById(R.id.tvStatusDiminta);
+            btnDikembalikan = itemView.findViewById(R.id.btnDikembalikan);
         }
     }
+}
