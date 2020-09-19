@@ -49,6 +49,6 @@ public interface BaseApiService {
     Call<ResponseBody> updateStatus(@Path("id")int id,
                                     @Field("status_permintaan") String status_permintaan);
 
-    @GET("history_siswa/{akun_id}")
-    Call<EDipinjam> getHistory (@Path("akun_id") int akun_id);
+//    @GET("history_siswa/{akun_id}")
+//    Call<EDipinjam> getHistory (@Path("akun_id") int akun_id);
 }

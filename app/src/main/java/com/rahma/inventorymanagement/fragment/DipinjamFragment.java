@@ -48,6 +48,7 @@ public class DipinjamFragment extends Fragment {
     String status;
     int akun_id,id_akun;
     List<M_dipinjam> dipinjams;
+    List<EDipinjam> dipinjam;
 
     public DipinjamFragment() {
         // Required empty public constructor
@@ -79,6 +80,7 @@ public class DipinjamFragment extends Fragment {
             public void onResponse(Call<EDipinjam> call, Response<EDipinjam> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
+//                    dipinjams = response.body().getData();
                     dipinjams = response.body().getData();
                    if (response.body().getData().isEmpty()){
                        tvGone.setVisibility(View.VISIBLE);

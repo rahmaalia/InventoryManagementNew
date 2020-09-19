@@ -11,7 +11,7 @@ public class EDipinjam {
     private Boolean status;
     @SerializedName("data")
     @Expose
-    private List<E_DipinjamPetugas> data = null;
+    private List<M_dipinjam> data = null;
 
     public Boolean getStatus() {
         return status;
@@ -21,11 +21,11 @@ public class EDipinjam {
         this.status = status;
     }
 
-    public List<E_DipinjamPetugas> getData() {
+    public List<M_dipinjam> getData() {
         return data;
     }
 
-    public void setData(List<E_DipinjamPetugas> data) {
+    public void setData(List<M_dipinjam> data) {
         this.data = data;
     }
 }
