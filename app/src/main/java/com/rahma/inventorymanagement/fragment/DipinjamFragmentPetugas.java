@@ -39,7 +39,7 @@ import retrofit2.Response;
 public class DipinjamFragmentPetugas extends Fragment {
     BaseApiService mApiService;
     DipinjamAdapterPetugas dipinjamAdapterPetugas;
-    TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
+    TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status,tvGone;
     RecyclerView rvDipinjam;
     List<E_DipinjamPetugas> dipinjamPetugas;
     SharedPrefManager sharedPrefManager;
@@ -68,6 +68,7 @@ public class DipinjamFragmentPetugas extends Fragment {
         status = view.findViewById(R.id.tvStatusDiminta);
 //        btnDikembalikan = view.findViewById(R.id.btnDikembalikan);
         rvDipinjam = view.findViewById(R.id.rvDipinjamPetugas);
+        tvGone = view.findViewById(R.id.tv_goneDipinjamPetugas);
 
         getPermintaan();
         mApiService.getDipinjam(jurusan_id).enqueue(new Callback<M_DipinjamPetugas>() {
@@ -76,6 +77,9 @@ public class DipinjamFragmentPetugas extends Fragment {
                 if (response.isSuccessful()){
                     Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     dipinjamPetugas = response.body().getData();
+                    if (response.body().getData().isEmpty()){
+                        tvGone.setVisibility(View.VISIBLE);
+                    }
 
                     dipinjamAdapterPetugas = new DipinjamAdapterPetugas(getActivity(),dipinjamPetugas);
                     rvDipinjam.setAdapter(dipinjamAdapterPetugas);

@@ -37,7 +37,7 @@ import retrofit2.Response;
 public class PermintaanFragmentPetugas extends Fragment {
     BaseApiService mApiService;
     PermintaanPetugasAdapter permintaanPetugasAdapter;
-    TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status;
+    TextView namaSiswa,kelas,namaBarang,stok,tglPinjamm,tglKembalii,status,tvGone;
     RecyclerView rvPermintaan;
     List<E_permintaan> permintaans;
     E_permintaan ePermintaan;
@@ -72,6 +72,7 @@ public class PermintaanFragmentPetugas extends Fragment {
         rvPermintaan = view.findViewById(R.id.rvPermintaan);
         btnACC = view.findViewById(R.id.btnAcc);
         btnBatal = view.findViewById(R.id.btnBatal);
+        tvGone = view.findViewById(R.id.tv_gonePermintaan);
         
         getPermintaan();
 //        statuss = ePermintaan.getStatusPermintaan();
@@ -81,9 +82,9 @@ public class PermintaanFragmentPetugas extends Fragment {
                 if (response.isSuccessful()){
                     Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     permintaans = response.body().getData();
-//                    if (statuss == "dipinjam"){
-//                        rvPermintaan.setVisibility(View.GONE);
-//                    }
+                    if (response.body().getData().isEmpty()){
+                        tvGone.setVisibility(View.VISIBLE);
+                    }
 
                     permintaanPetugasAdapter = new PermintaanPetugasAdapter(getContext(),permintaans);
                     rvPermintaan.setAdapter(permintaanPetugasAdapter);

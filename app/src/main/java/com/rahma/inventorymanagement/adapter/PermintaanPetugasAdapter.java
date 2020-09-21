@@ -1,6 +1,8 @@
 package com.rahma.inventorymanagement.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rahma.inventorymanagement.BerandaActivity;
 import com.rahma.inventorymanagement.BerandaPetugas;
+import com.rahma.inventorymanagement.LoginActivity;
 import com.rahma.inventorymanagement.PeminjamanActivity;
+import com.rahma.inventorymanagement.ProfilActivity;
 import com.rahma.inventorymanagement.R;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
@@ -41,7 +45,7 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
     CardView cardView;
     SharedPrefManager sharedPrefManager;
     BaseApiService mApiService;
-    String statuss,tglmasuk;
+    String statuss,statusbatal;
     int id_permintaan;
     Button btnAcc;
 
@@ -75,9 +79,6 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
         holder.btnAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                    int position = getAdapterPosition();
-//                    if (position != RecyclerView.NO_POSITION){
-//                        Toast.makeText(mContext,""+ePermintaan.getNamaBarang(),Toast.LENGTH_SHORT).show();
                 mApiService.updateStatus(ePermintaan.getIdPermintaan(),statuss).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -111,7 +112,64 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
 
 
 //        Toast.makeText(mContext,""+id_permintaan,Toast.LENGTH_SHORT).show();
+        statusbatal = "ditolak";
+        holder.btnBatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
+                builder1.setMessage("Apakah anda yakin ?");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton(
+                        "Iya",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                mApiService.updateStatus(ePermintaan.getIdPermintaan(),statusbatal).enqueue(new Callback<ResponseBody>() {
+                                    @Override
+                                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                        if (response.isSuccessful()){
+                                            try {
+                                                JSONObject jsonObject = new JSONObject(response.body().string());
+                                                if (jsonObject.getString("status").equals("true")){
+                                                    Toast.makeText(mContext, "berhasil", Toast.LENGTH_SHORT).show();
+                                                    Intent intent=new Intent(mContext, BerandaPetugas.class);
+                                                    mContext.startActivity(intent);
+                                                    ((BerandaPetugas)mContext).finish();
+                                                }else {
+                                                    Toast.makeText(mContext, "gagal", Toast.LENGTH_SHORT).show();
+                                                }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                        Toast.makeText(mContext, "error", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        });
+
+                builder1.setNegativeButton(
+                        "Tidak",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+
+
+
+            }
+        });
 
     }
 

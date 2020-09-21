@@ -85,6 +85,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         Intent intent=new Intent(LoginActivity.this,BerandaPetugas.class);
                                         int idjurusann = JSONResult.getJSONObject("data").getInt("jurusan_id");
 
+                                        String username = JSONResult.getJSONObject("data").getString("username");
+                                        sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
                                         sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_LOGIN_ADMIN, true);
                                         sharedPrefManager.saveSPint(String.valueOf(SharedPrefManager.SP_IDJURUSAN), idjurusann);
                                         startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));

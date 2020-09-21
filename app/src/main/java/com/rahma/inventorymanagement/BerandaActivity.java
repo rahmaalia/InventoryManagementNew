@@ -63,11 +63,8 @@ public class BerandaActivity extends AppCompatActivity {
                 startActivity(new Intent(BerandaActivity.this,ProfilActivity.class));
                 return true;
             case R.id.riwayatMenu:
-                startActivity(new Intent(BerandaActivity.this, RiwayatActivity.class));
+                startActivity(new Intent(BerandaActivity.this, HistoryActivity.class));
                 return true;
-//            case R.id.keluarMenu:
-//                Toast.makeText(this, "Keluar", Toast.LENGTH_SHORT).show();
-//                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

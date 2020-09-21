@@ -48,7 +48,6 @@ public class DipinjamFragment extends Fragment {
     String status;
     int akun_id,id_akun;
     List<M_dipinjam> dipinjams;
-    List<EDipinjam> dipinjam;
 
     public DipinjamFragment() {
         // Required empty public constructor

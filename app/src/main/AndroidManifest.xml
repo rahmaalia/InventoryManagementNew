@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RiwayatActivity"></activity>
+        <activity android:name=".ProfilPetugas"></activity>
+        <activity android:name=".HistoryPetugas" />
+        <activity android:name=".RiwayatActivity" />
         <activity android:name=".HistoryActivity" />
         <activity
             android:name=".PeminjamanActivity"
