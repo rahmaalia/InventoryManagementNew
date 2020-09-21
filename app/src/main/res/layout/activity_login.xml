@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:orientation="vertical"
-    android:background="@drawable/bg_login">
+    android:gravity="center"
+    android:background="@drawable/bg_login2">
 
 <!--    <TextView-->
 <!--        android:id="@+id/tv_namapengguna"-->
@@ -69,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
 
@@ -86,8 +88,11 @@
             android:id="@+id/et_namapengguna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:ems="10"
             android:textSize="17sp"
+            android:textColor="@color/colorPrimary"
             android:inputType="textPersonName"
             android:layout_marginTop="30dp"
             android:hint="Nama Pengguna"/>
@@ -96,6 +101,9 @@
             android:id="@+id/et_katasandi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
             android:ems="10"
             android:inputType="textPassword"
             android:textSize="17sp"

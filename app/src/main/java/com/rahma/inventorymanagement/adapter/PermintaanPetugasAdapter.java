@@ -125,7 +125,7 @@ public class PermintaanPetugasAdapter extends RecyclerView.Adapter<PermintaanPet
                         "Iya",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                mApiService.updateStatus(ePermintaan.getIdPermintaan(),statusbatal).enqueue(new Callback<ResponseBody>() {
+                                mApiService.updateStatusDitolak(ePermintaan.getIdPermintaan(),statusbatal).enqueue(new Callback<ResponseBody>() {
                                     @Override
                                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                                         if (response.isSuccessful()){

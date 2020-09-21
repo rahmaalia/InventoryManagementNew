@@ -56,4 +56,15 @@ public interface BaseApiService {
 
     @GET("history_petugas/{jurusan_id}")
     Call<M_HistoryPetugas> getHistoryPetugas(@Path("jurusan_id")int jurusan_id);
+
+    @FormUrlEncoded
+    @PUT("Pengembalian/{id}")
+    Call<ResponseBody> updateStatusDikembalikan(@Path("id")int id,
+                                                @Field("status_permintaan") String status_permintaan);
+
+    @FormUrlEncoded
+    @PUT("Ditolak/{id}")
+    Call<ResponseBody> updateStatusDitolak (@Path("id")int id,
+                                           @Field("status_permintaan") String status_permintaan);
+
 }

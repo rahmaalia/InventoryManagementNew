@@ -70,7 +70,7 @@ public class DipinjamAdapterPetugas extends RecyclerView.Adapter<DipinjamAdapter
         holder.btnDikembalikan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService.updateStatus(eDipinjamPetugas.getIdPermintaan(),status).enqueue(new Callback<ResponseBody>() {
+                mApiService.updateStatusDikembalikan(eDipinjamPetugas.getIdPermintaan(),status).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()){
