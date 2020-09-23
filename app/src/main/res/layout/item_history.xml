@@ -4,12 +4,15 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#ffffff">
 
 
         <LinearLayout
@@ -55,13 +58,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal pinjam" />
+                    android:text="Tanggal pinjam"
+                    android:textColor="#4A4646"/>
 
                 <TextView
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal kembali" />
+                    android:text="Tanggal kembali"
+                    android:textColor="#4A4646"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -99,7 +104,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             app:cardCornerRadius="10dp"
-            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardBackgroundColor="#2196F3"
             android:layout_marginRight="10dp">
             <LinearLayout
                 android:layout_width="match_parent"

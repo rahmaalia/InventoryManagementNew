@@ -78,7 +78,7 @@ public class DipinjamFragment extends Fragment {
             @Override
             public void onResponse(Call<EDipinjam> call, Response<EDipinjam> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
 //                    dipinjams = response.body().getData();
                     dipinjams = response.body().getData();
                    if (response.body().getData().isEmpty()){

@@ -127,6 +127,7 @@ public class PeminjamanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 selected = rgTanggall.getCheckedRadioButtonId();
                 rbSemua = findViewById(selected);
+
                     mApiService.peminjamanRequest(id_barang,akun_id,kelas_id,jurusan_id,status,jumlahBarang,tanggal_peminjaman,rbSemua.getText().toString()).enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

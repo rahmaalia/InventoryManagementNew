@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.rahma.inventorymanagement.apihelper.BaseApiService;
 import com.rahma.inventorymanagement.apihelper.RetrofitClient;
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button btnLogin;
     ProgressDialog loading;
     SharedPrefManager sharedPrefManager;
+    TextInputLayout layoutu,layoutp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +71,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etNamaPengguna = (EditText) findViewById(R.id.et_namapengguna);
         etKataSandi = (EditText) findViewById(R.id.et_katasandi);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        layoutp=findViewById(R.id.layoutp);
+        layoutu=findViewById(R.id.layoutuser);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(etNamaPengguna.length()==0){
+                    layoutu.setError("Nama pengguna Harus Diisi");
+
+                }
+                else if (etNamaPengguna.length()!=0){
+                    layoutu.setError(null);
+                    layoutu.setErrorEnabled(false);
+                }
+                if(etKataSandi.length()==0){
+                    layoutp.setError("Katasandi Harus Diisi");
+
+                }
+                else if (etKataSandi.length()!=0){
+                    layoutp.setError(null);
+                    layoutp.setErrorEnabled(false);
+                }
+                if(etNamaPengguna.length()!=0 && etKataSandi.length()!=0){
                 mApiService.loginRequest(etNamaPengguna.getText().toString(), etKataSandi.getText().toString())
                         .enqueue(new Callback<ResponseBody>() {
                     @Override
@@ -130,7 +151,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                                loading.dismiss();
                                 Toast.makeText(mContext, "Gagal login", Toast.LENGTH_SHORT).show();
                     }
-                });
+                });}
 
             }
         });

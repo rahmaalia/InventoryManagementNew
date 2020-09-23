@@ -11,7 +11,8 @@
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:tabTextColor="#ffffff">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tabDipinjam"

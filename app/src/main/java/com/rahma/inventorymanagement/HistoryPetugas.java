@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,7 @@ public class HistoryPetugas extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Context mContext;
     int jurusan_id;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +54,14 @@ public class HistoryPetugas extends AppCompatActivity {
 
         rvHistory = findViewById(R.id.rvHistoryPetugas);
         tvGone = findViewById(R.id.tv_goneHistoryPetugas);
+        back = findViewById(R.id.exitP);
 
         getHistory();
         mApiService.getHistoryPetugas(jurusan_id).enqueue(new Callback<M_HistoryPetugas>() {
             @Override
             public void onResponse(Call<M_HistoryPetugas> call, Response<M_HistoryPetugas> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(HistoryPetugas.this,"sukses",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(HistoryPetugas.this,"sukses",Toast.LENGTH_SHORT).show();
                     historyPetugas = response.body().getData();
                     if (response.body().getData().isEmpty()){
                         tvGone.setVisibility(View.VISIBLE);
@@ -74,6 +78,14 @@ public class HistoryPetugas extends AppCompatActivity {
             @Override
             public void onFailure(Call<M_HistoryPetugas> call, Throwable t) {
                 Toast.makeText(mContext,"koneksi jelek",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HistoryPetugas.this,BerandaPetugas.class);
+                startActivity(i);
             }
         });
     }

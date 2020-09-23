@@ -80,7 +80,7 @@ public class PermintaanFragmentPetugas extends Fragment {
             @Override
             public void onResponse(Call<M_permintaan> call, Response<M_permintaan> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     permintaans = response.body().getData();
                     if (response.body().getData().isEmpty()){
                         tvGone.setVisibility(View.VISIBLE);

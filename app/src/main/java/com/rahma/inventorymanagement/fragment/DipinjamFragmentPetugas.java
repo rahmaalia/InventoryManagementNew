@@ -75,7 +75,7 @@ public class DipinjamFragmentPetugas extends Fragment {
             @Override
             public void onResponse(Call<M_DipinjamPetugas> call, Response<M_DipinjamPetugas> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),"sukses",Toast.LENGTH_SHORT).show();
                     dipinjamPetugas = response.body().getData();
                     if (response.body().getData().isEmpty()){
                         tvGone.setVisibility(View.VISIBLE);

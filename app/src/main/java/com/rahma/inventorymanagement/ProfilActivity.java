@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
@@ -18,6 +19,7 @@ public class ProfilActivity extends AppCompatActivity {
     TextView TvResultNama;
     SharedPrefManager sharedPrefManager;
     Context mContext;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ProfilActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(this);
         TvResultNama = findViewById(R.id.tvNama);
         TvResultNama.setText(sharedPrefManager.getSpUsername());
+        back = findViewById(R.id.exitProfil);
 
         btn_keluar =findViewById(R.id.btnKeluar);
         btn_keluar.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +65,14 @@ public class ProfilActivity extends AppCompatActivity {
                 alert11.show();
 
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ProfilActivity.this,BerandaActivity.class);
+                startActivity(i);
             }
         });
 

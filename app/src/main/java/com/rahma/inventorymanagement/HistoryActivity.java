@@ -2,9 +2,11 @@ package com.rahma.inventorymanagement;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class HistoryActivity extends AppCompatActivity {
     TextView tvGone;
     List<E_History> histories;
     Context mContext;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +50,14 @@ public class HistoryActivity extends AppCompatActivity {
 
         tvGone = findViewById(R.id.tv_goneHistory);
         rvHistory = findViewById(R.id.rvHistory);
+        back = findViewById(R.id.exit);
 
         getHistory();
         mApiService.getHistory(akun_id).enqueue(new Callback<M_History>() {
             @Override
             public void onResponse(Call<M_History> call, Response<M_History> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(HistoryActivity.this,"sukses",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(HistoryActivity.this,"sukses",Toast.LENGTH_SHORT).show();
                     histories = response.body().getData();
                     if (response.body().getData().isEmpty()){
                         tvGone.setVisibility(View.VISIBLE);
@@ -73,6 +77,15 @@ public class HistoryActivity extends AppCompatActivity {
 
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(HistoryActivity.this,BerandaActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     private void getHistory() {

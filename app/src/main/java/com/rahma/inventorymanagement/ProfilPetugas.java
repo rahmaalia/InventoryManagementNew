@@ -8,14 +8,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rahma.inventorymanagement.model_entitity.E_permintaan;
 import com.rahma.inventorymanagement.sharedpref.SharedPrefManager;
+
+import java.util.List;
 
 public class ProfilPetugas extends AppCompatActivity {
     Button btn_keluar;
-    TextView TvResultNama;
+    TextView TvResultNama,kelasprofil;
     SharedPrefManager sharedPrefManager;
+    E_permintaan ePermintaan;
+    String kelas;
+    int jurusan;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +31,26 @@ public class ProfilPetugas extends AppCompatActivity {
         setContentView(R.layout.activity_profil_petugas);
 
         sharedPrefManager = new SharedPrefManager(this);
+//        kelas = ePermintaan.getAngkatan();
         TvResultNama = findViewById(R.id.tvNamaPetugas);
+        kelasprofil = findViewById(R.id.jurusans);
+        back= findViewById(R.id.exitProfilP);
         TvResultNama.setText(sharedPrefManager.getSpUsername());
+        jurusan = sharedPrefManager.getSpIdjurusan();
+
+        if (jurusan == 1){
+            kelasprofil.setText("RPL");
+        }else if (jurusan == 2){
+            kelasprofil.setText("MEKATRONIKA");
+        }else if (jurusan == 3) {
+            kelasprofil.setText("ANIMASI");
+        }else if (jurusan == 4) {
+            kelasprofil.setText("Mesin");
+        }else if (jurusan == 5) {
+            kelasprofil.setText("KIMIA INDUSTRI");
+        }else if (jurusan == 6) {
+            kelasprofil.setText("mULTIMEDIA");
+        }
 
         btn_keluar =findViewById(R.id.btnKeluarPetugas);
         btn_keluar.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +85,14 @@ public class ProfilPetugas extends AppCompatActivity {
                 alert11.show();
 
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ProfilPetugas.this,BerandaPetugas.class);
+                startActivity(i);
             }
         });
     }

@@ -56,7 +56,8 @@
             android:textColor="@drawable/text_color"
             android:button="@android:color/transparent"
             android:background="@drawable/radio_selector"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:checked="true"/>
         <RadioButton
             android:id="@+id/rbTanggal2"
             android:layout_width="100dp"
