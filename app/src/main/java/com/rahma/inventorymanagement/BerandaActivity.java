@@ -65,6 +65,7 @@ public class BerandaActivity extends AppCompatActivity {
             case R.id.riwayatMenu:
                 startActivity(new Intent(BerandaActivity.this, HistoryActivity.class));
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 

@@ -40,7 +40,7 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
     public void onBindViewHolder(@NonNull PeminjamanViewHolder holder, int position) {
         ePeminjaman = peminjamanList.get(position);
         holder.namaBarang.setText(ePeminjaman.getNamaBarang());
-        holder.stok.setText(String.valueOf(ePeminjaman.getStokBarang()));
+        holder.stok.setText(String.valueOf(ePeminjaman.getBarang_benar()));
 
         Log.d("onBindViewHolder", ePeminjaman.toString());
     }
@@ -65,7 +65,7 @@ public class PeminjamanAdapter extends RecyclerView.Adapter<PeminjamanAdapter.Pe
                     if (position != RecyclerView.NO_POSITION){
                         Intent i = new Intent(mContext, PeminjamanActivity.class);
                         i.putExtra("nama_barang",peminjamanList.get(position).getNamaBarang());
-                        i.putExtra("stok_barang",peminjamanList.get(position).getStokBarang());
+                        i.putExtra("barang_benar",peminjamanList.get(position).getBarang_benar());
                         i.putExtra("id_barang",peminjamanList.get(position).getIdBarang());
 //                        i.putExtra("stok_barang",peminjamanList);
                         mContext.startActivity(i);

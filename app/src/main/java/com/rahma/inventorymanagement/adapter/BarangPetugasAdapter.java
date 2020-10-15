@@ -37,7 +37,7 @@ public class BarangPetugasAdapter extends RecyclerView.Adapter<BarangPetugasAdap
     public void onBindViewHolder(@NonNull BarangPetugasAdapter.BarangViewHolder holder, int position) {
         ePeminjaman = peminjamanList.get(position);
         holder.namaBarang.setText(ePeminjaman.getNamaBarang());
-        holder.stok.setText(String.valueOf(ePeminjaman.getStokBarang()));
+        holder.stok.setText(String.valueOf(ePeminjaman.getBarang_benar()));
 
         Log.d("onBindViewHolder", ePeminjaman.toString());
     }

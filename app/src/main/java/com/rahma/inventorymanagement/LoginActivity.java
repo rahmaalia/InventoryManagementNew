@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button btnMoveActivity = findViewById(R.id.btnLogin);
         btnMoveActivity.setOnClickListener(this);
 
+
         mContext = LoginActivity.this;
         mApiService = RetrofitClient.getClient(RetrofitClient.BASE_URL_API).create(BaseApiService.class);
         initComponents();
@@ -114,8 +115,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         finish();
                                     }
                                     else {
-                                        Toast.makeText(mContext, "Berhasil login", Toast.LENGTH_SHORT).show();
+
                                         Intent intent = new Intent(LoginActivity.this, BerandaActivity.class);
+                                        Toast.makeText(mContext, "Berhasil login", Toast.LENGTH_SHORT).show();
                                         String username = JSONResult.getJSONObject("data").getString("username");
                                         int idjurusan = JSONResult.getJSONObject("data").getInt("jurusan_id");
                                         int idakun = JSONResult.getJSONObject("data").getInt("id_akun");
@@ -163,6 +165,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnLogin:
                 Intent moveIntent = new Intent(LoginActivity.this, BerandaActivity.class);
                 startActivity(moveIntent);
+                finish();
                 break;
 
         }

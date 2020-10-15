@@ -65,6 +65,9 @@ public class BerandaPetugas extends AppCompatActivity {
             case R.id.riwayatMenu:
                 startActivity(new Intent(BerandaPetugas.this, HistoryPetugas.class));
                 return true;
+            case R.id.BarangrusakMenu:
+                startActivity(new Intent(BerandaPetugas.this, BarangRusak.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

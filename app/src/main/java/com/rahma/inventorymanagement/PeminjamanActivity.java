@@ -64,9 +64,9 @@ public class PeminjamanActivity extends AppCompatActivity {
 
         final Intent intent= getIntent();
         namaBarang.setText(getIntent().getExtras().getString("nama_barang"));
-        final String stokk = String.valueOf(intent.getIntExtra("stok_barang",1));
+        final String stokk = String.valueOf(intent.getIntExtra("barang_benar",1));
         Stok.setText(stokk);
-        final int stok = intent.getIntExtra("stok_barang",1);
+        final int stok = intent.getIntExtra("barang_benar",1);
         final int id_barang = intent.getIntExtra("id_barang",1);
         akun_id = sharedPrefManager.getSpIduser();
         kelas_id = sharedPrefManager.getSpIdkelas();

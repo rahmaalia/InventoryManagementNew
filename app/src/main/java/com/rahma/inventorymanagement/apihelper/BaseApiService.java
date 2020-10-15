@@ -4,6 +4,7 @@ import com.rahma.inventorymanagement.model_entitity.EDipinjam;
 import com.rahma.inventorymanagement.model_entitity.M_DipinjamPetugas;
 import com.rahma.inventorymanagement.model_entitity.M_History;
 import com.rahma.inventorymanagement.model_entitity.M_HistoryPetugas;
+import com.rahma.inventorymanagement.model_entitity.M_Profil;
 import com.rahma.inventorymanagement.model_entitity.M_peminjaman;
 import com.rahma.inventorymanagement.model_entitity.M_permintaan;
 
@@ -36,6 +37,9 @@ public interface BaseApiService {
 
     @GET("getPeminjaman/{akun_id}")
     Call<EDipinjam> getPinjam (@Path("akun_id") int akun_id);
+
+    @GET("getprofil/{siswa_id}")
+    Call<M_Profil> getProfil (@Path("siswa_id") int siswa_id);
 
     @GET("barang/{jurusan_id}")
     Call<M_peminjaman> getPeminjaman(@Path("jurusan_id")int jurusan_id);
